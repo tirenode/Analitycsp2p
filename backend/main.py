@@ -7,8 +7,9 @@ app = FastAPI()
 def read_root():
     return {"message": "AnalitycsP2P backend funcionando correctamente"}
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
+from .agent_setup import ejecutar_agente
 
 # Load environment variables
 load_dotenv()
@@ -16,6 +17,16 @@ load_dotenv()
 app = FastAPI()
 
 @app.get("/")
+
+
+@app.post("/agent")
+async def run_agent(prompt: str):
+    try:
+        result = ejecutar_agente(prompt)
+        return {"response": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 def read_root():
     project_name = os.getenv("PROJECT_NAME", "Default Project")
     return {"message": f"{project_name} backend funcionando correctamente"}
