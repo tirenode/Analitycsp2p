@@ -1,3 +1,10 @@
 
+langchain
+openai
+chromadb
+faiss-cpu
 fastapi
 uvicorn
+python-dotenv
+ccxt
+requests
