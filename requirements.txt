@@ -17,3 +17,7 @@ langchain-community
 langchain-community
 langchain-community
 langchain-community
+langchain-community
+python-dotenv
+langchain-community
+python-dotenv
