@@ -12,3 +12,8 @@ langchain
 openai
 langchain
 openai
+langchain-community
+langchain-community
+langchain-community
+langchain-community
+langchain-community
