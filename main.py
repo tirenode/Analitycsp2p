@@ -1,3 +1,7 @@
-mkdir backend llm_agents data
-touch backend/main.py llm_agents/agent.py llm_agents/tools.py llm_agents/retriever.py data/examples.json .env requirements.txt README.md
-.replit
+
+# Main entry point
+from backend.main import app
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
