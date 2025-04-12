@@ -9,7 +9,12 @@ def read_root():
 import os
 from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
-from .agent_setup import ejecutar_agente
+import sys
+import os
+
+# Add parent directory to path to allow imports from llm_agents
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from llm_agents.agent import ejecutar_agente
 
 # Load environment variables
 load_dotenv()
@@ -37,3 +42,11 @@ def check_env():
         "project_name": os.getenv("PROJECT_NAME") is not None,
         "openai_key": os.getenv("OPENAI_API_KEY") is not None
     }
+
+@app.post("/ia")
+def ejecutar_ia(prompt: str):
+    try:
+        respuesta = ejecutar_agente(prompt)
+        return {"respuesta": respuesta}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
