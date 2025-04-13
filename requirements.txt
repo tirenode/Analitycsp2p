@@ -1,23 +1,6 @@
 
-langchain
-openai
-chromadb
-faiss-cpu
 fastapi
 uvicorn
 python-dotenv
-ccxt
-requests
-langchain
+langchain-community
 openai
-langchain
-openai
-langchain-community
-langchain-community
-langchain-community
-langchain-community
-langchain-community
-langchain-community
-python-dotenv
-langchain-community
-python-dotenv
