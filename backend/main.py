@@ -43,10 +43,15 @@ def check_env():
         "openai_key": os.getenv("OPENAI_API_KEY") is not None
     }
 
+from pydantic import BaseModel
+
+class Prompt(BaseModel):
+    prompt: str
+
 @app.post("/ia")
-def ejecutar_ia(prompt: str):
+def ejecutar_ia(data: Prompt):
     try:
-        respuesta = ejecutar_agente(prompt)
+        respuesta = ejecutar_agente(data.prompt)
         return {"respuesta": respuesta}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
