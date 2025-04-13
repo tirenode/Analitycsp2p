@@ -4,3 +4,12 @@ uvicorn
 python-dotenv
 langchain-community
 openai
+openai
+openai
+openai
+openai
+openai
+openai
+openai
+openai
+openai
