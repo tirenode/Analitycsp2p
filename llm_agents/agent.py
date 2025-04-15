@@ -1,7 +1,6 @@
 
 from openai import OpenAI
 import os
-import logging
 
 def ejecutar_agente(prompt: str) -> str:
     api_key = os.getenv("OPENAI_API_KEY")
@@ -11,14 +10,12 @@ def ejecutar_agente(prompt: str) -> str:
     try:
         client = OpenAI(api_key=api_key)
         response = client.chat.completions.create(
-            model="gpt-4-0613",
+            model="gpt-4o",
             messages=[
-                {"role": "system", "content": "Eres un asistente útil especializado en trading P2P"},
+                {"role": "system", "content": "Eres un asistente útil especializado en trading P2P."},
                 {"role": "user", "content": prompt}
             ]
         )
-        logging.info(f"Respuesta OpenAI: {response}")
         return response.choices[0].message.content
     except Exception as e:
-        logging.error(f"Error al ejecutar el agente: {e}")
-        return f"Error al ejecutar el agente: {e}"
+        return f"Error al ejecutar el agente: {str(e)}"
