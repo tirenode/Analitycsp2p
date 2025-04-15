@@ -11,7 +11,7 @@ def ejecutar_agente(prompt: str) -> str:
     try:
         client = OpenAI(api_key=api_key)
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4",
             messages=[
                 {"role": "system", "content": "Eres un asistente útil especializado en trading P2P"},
                 {"role": "user", "content": prompt}
