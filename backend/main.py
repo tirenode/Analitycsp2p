@@ -25,9 +25,9 @@ def read_root():
 
 @app.get("/check-env")
 def check_env():
+    api_key = os.getenv("OPENAI_API_KEY")
     return {
-        "project_name": os.getenv("PROJECT_NAME") is not None,
-        "openai_key": os.getenv("OPENAI_API_KEY") is not None
+        "status": "ok" if api_key else "missing"
     }
 
 class Prompt(BaseModel):
