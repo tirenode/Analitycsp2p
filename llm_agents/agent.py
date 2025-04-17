@@ -19,6 +19,6 @@ def ejecutar_agente(prompt: str) -> str:
         )
         return response.choices[0].message.content
     except Exception as e:
-        error_trace = traceback.format_exc()
-        print("Error detallado:", error_trace)
+        print("Error detallado:")
+        traceback.print_exc()
         return f"Error al ejecutar el agente: {str(e)}"
