@@ -1,4 +1,3 @@
-
 from openai import OpenAI
 import os
 
@@ -8,17 +7,7 @@ def ejecutar_agente(prompt: str) -> str:
         return "Error: No se encontró la clave API de OpenAI."
 
     try:
-        # Test the API key
         client = OpenAI(api_key=api_key)
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "user", "content": "Test de conexión: responde 'OK' si me escuchas."}
-            ]
-        )
-        print("Test de conexión exitoso:", response.choices[0].message.content)
-        
-        # Realizar la llamada real
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
