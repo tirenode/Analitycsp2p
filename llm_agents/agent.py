@@ -18,4 +18,5 @@ def ejecutar_agente(prompt: str) -> str:
         )
         return response.choices[0].message.content
     except Exception as e:
+        print("Error detallado:", e)
         return f"Error al ejecutar el agente: {str(e)}"
