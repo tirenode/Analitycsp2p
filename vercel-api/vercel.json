@@ -5,16 +5,20 @@
     {
       "src": "api/ia.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/ia",
+      "src": "/ia",
       "dest": "api/ia.py"
     },
     {
-      "src": "/$",
-      "dest": "vercel-api/api/ia.py"
+      "src": "/(.*)",
+      "dest": "api/index.py"
     }
   ]
 }
