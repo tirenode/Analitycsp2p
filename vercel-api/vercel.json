@@ -11,6 +11,10 @@
     {
       "src": "/api/ia",
       "dest": "api/ia.py"
+    },
+    {
+      "src": "/$",
+      "dest": "vercel-api/api/ia.py"
     }
   ]
 }

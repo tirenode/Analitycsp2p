@@ -3,6 +3,12 @@ import openai
 import os
 import json
 
+def root(request):
+    return {
+        "statusCode": 200,
+        "body": json.dumps({"message": "API funcionando correctamente"})
+    }
+
 def handler(request):
     try:
         body = request.get_json()
