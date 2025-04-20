@@ -4,11 +4,10 @@ import os
 import json
 
 def handler(request):
-    if request.path == "/":
-        return {
-            "statusCode": 200,
-            "body": json.dumps({"message": "¡Bienvenido a AnalitycsP2P API!"})
-        }
+    return {
+        "statusCode": 200,
+        "body": json.dumps({"message": "¡Bienvenido a AnalitycsP2P API en Vercel!"})
+    }
 
     try:
         body = request.get_json()
