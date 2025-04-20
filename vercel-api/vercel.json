@@ -1,0 +1,8 @@
+
+{
+  "functions": {
+    "api/ia.py": {
+      "runtime": "python3.9"
+    }
+  }
+}
