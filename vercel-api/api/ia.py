@@ -1,13 +1,9 @@
+
 from openai import OpenAI
 import os
 import json
 
 def handler(request):
-    return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "¡Bienvenido a AnalitycsP2P API en Vercel!"})
-    }
-
     try:
         body = request.get_json()
         prompt = body.get("prompt", "")
@@ -25,11 +21,13 @@ def handler(request):
 
         return {
             "statusCode": 200,
+            "headers": {"Content-Type": "application/json"},
             "body": json.dumps({"respuesta": response.choices[0].message.content})
         }
 
     except Exception as e:
         return {
             "statusCode": 500,
+            "headers": {"Content-Type": "application/json"},
             "body": json.dumps({"error": str(e)})
         }
