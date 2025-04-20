@@ -1,22 +1,23 @@
 
-import openai
+from openai import OpenAI
 import os
 import json
 
-def root(request):
-    return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "API funcionando correctamente"})
-    }
-
 def handler(request):
+    if request.path == "/":
+        return {
+            "statusCode": 200,
+            "body": json.dumps({"message": "¡Bienvenido a AnalitycsP2P API!"})
+        }
+
     try:
         body = request.get_json()
         prompt = body.get("prompt", "")
 
-        openai.api_key = os.environ.get("OPENAI_API_KEY")
+        openai_api_key = os.environ.get("OPENAI_API_KEY")
+        client = OpenAI(api_key=openai_api_key)
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Eres un asistente experto en trading P2P."},
