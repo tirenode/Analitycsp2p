@@ -5,10 +5,9 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from llm_agents.agent import ejecutar_agente
 
-# Load environment variables
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(title="AnalitycsP2P API")
 
 app.add_middleware(
     CORSMiddleware,

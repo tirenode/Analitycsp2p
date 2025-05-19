@@ -1,7 +1,6 @@
 
 from openai import OpenAI
 import os
-import traceback
 
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
@@ -22,6 +21,4 @@ def ejecutar_agente(prompt: str) -> str:
         )
         return response.choices[0].message.content
     except Exception as e:
-        print("Error detallado:")
-        traceback.print_exc()
         return f"Error al ejecutar el agente: {str(e)}"
